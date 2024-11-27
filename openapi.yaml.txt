@@ -1,0 +1,47 @@
+openapi: 3.0.1
+info:
+  title: master_ai販売ページ作成
+  description: キャッチコピーを考えたり、販売ページのレターを作ったりするのも簡単にできるツールです！
+  version: "1.0.0"
+servers:
+  - url: https://api.dify.ai/v1
+paths:
+  /chat-messages:
+    post:
+      summary: チャットメッセージを送信
+      description: ユーザーからのメッセージを送信し、AI応答を取得します。
+      operationId: sendChatMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: ユーザーの入力メッセージ
+              required:
+                - message
+      responses:
+        "200":
+          description: 正常な応答
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reply:
+                    type: string
+                    description: AIの応答メッセージ
+        "401":
+          description: 認証エラー
+        "400":
+          description: リクエストエラー
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
