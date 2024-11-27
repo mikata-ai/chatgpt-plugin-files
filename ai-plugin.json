@@ -1,0 +1,19 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Dify Chat Plugin",
+  "name_for_model": "dify_chat_plugin",
+  "description_for_human": "Dify APIを利用したチャット応答機能を提供します。",
+  "description_for_model": "Dify APIを使用してユーザーのメッセージを処理し、応答を生成します。",
+  "auth": {
+    "type": "service_http",
+    "authorization_type": "bearer"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://your-server-url.com/openapi.yaml",
+    "is_user_authenticated": true
+  },
+  "logo_url": "https://your-server-url.com/logo.png",
+  "contact_email": "your-email@example.com",
+  "legal_info_url": "https://your-server-url.com/legal"
+}
